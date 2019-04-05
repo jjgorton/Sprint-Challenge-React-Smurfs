@@ -21,18 +21,21 @@ class SmurfForm extends Component {
 		// 	height : this.state.height
 		// };
 
-		axios
-			.post('http://localhost:3333/smurfs', this.state)
-			.then((res) => {
-				this.setState({
-					name   : res.data.name,
-					age    : res.data.age,
-					height : res.data.height
-				});
-			})
-			.catch((err) => {
-				console.log(err);
-			});
+		// axios
+		// 	.post('http://localhost:3333/smurfs', this.state)
+		// 	.then((res) => {
+		// 		this.setState({
+		// 			name   : res.data.name,
+		// 			age    : res.data.age,
+		// 			height : res.data.height
+		// 		});
+		// 		this.props.history.push('/');
+		// 	})
+		// 	.catch((err) => {
+		// 		console.log(err);
+		// 	});
+
+		this.props.newSmurf(this.state);
 
 		this.setState({
 			name   : '',

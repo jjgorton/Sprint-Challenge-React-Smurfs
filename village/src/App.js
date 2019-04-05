@@ -29,6 +29,20 @@ class App extends Component {
 			});
 	}
 
+	newSmurf = (smurfObj) => {
+		axios
+			.post('http://localhost:3333/smurfs', smurfObj)
+			.then((res) => {
+				this.setState({
+					smurfs : res.data
+				});
+				this.props.history.push('/');
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	};
+
 	render() {
 		return (
 			<div className="App">
@@ -41,9 +55,9 @@ class App extends Component {
 					</NavLink>
 				</nav>
 
-				<Route path="/smurf-form" component={SmurfForm} />
+				<Route path="/smurf-form" render={(props) => <SmurfForm {...props} newSmurf={this.newSmurf} />} />
 
-				<Route path="/" render={() => <Smurfs smurfs={this.state.smurfs} />} />
+				<Route path="/" render={(props) => <Smurfs {...props} smurfs={this.state.smurfs} />} />
 			</div>
 		);
 	}
