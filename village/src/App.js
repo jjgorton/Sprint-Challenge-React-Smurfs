@@ -46,18 +46,27 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
-				<nav>
-					<NavLink to="/">
-						<h3>Smurf Village</h3>
-					</NavLink>
-					<NavLink to="/smurf-form">
-						<h3>Add a Smurf</h3>
-					</NavLink>
-				</nav>
+				<header>
+					<img
+						src={
+							'https://vignette.wikia.nocookie.net/smurfs/images/3/3f/Male_Smurf_Magic_Flute.jpg/revision/latest?cb=20111012170145'
+						}
+						alt="smurf"
+					/>
+					<h1>Welcome to Smurf Village</h1>
+					<div className="nav">
+						<NavLink exact to="/">
+							<h3>Your Smurfs</h3>
+						</NavLink>
+						<NavLink to="/smurf-form">
+							<h3>Add a Smurf</h3>
+						</NavLink>
+					</div>
+				</header>
 
 				<Route path="/smurf-form" render={(props) => <SmurfForm {...props} newSmurf={this.newSmurf} />} />
 
-				<Route path="/" render={(props) => <Smurfs {...props} smurfs={this.state.smurfs} />} />
+				<Route exact path="/" render={(props) => <Smurfs {...props} smurfs={this.state.smurfs} />} />
 			</div>
 		);
 	}
