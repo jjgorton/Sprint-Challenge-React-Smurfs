@@ -29,8 +29,19 @@ In this challenge, you will create a Single Page Application complete with Clien
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] Explain the differences between `client-side routing` and `server-side routing`.
+
+    -Server-Side Routing is when the server handles all information requests from the user.  This will a cause a repaint of the page everytime any information is requested.  This is fine if it a small page/application without much data.  However if there is a large amount of data, this process will slow things down.
+
+    Client-Side Routing, on the other hand, allows all information requests to be handled on the "client-side".  All the required data is loaded on the initial load and allows JavaScript to handle the data requests.  This allows for only those DOM elements effected to be the data request to be "repainted"  as opposed to all the DOM elements.  Client-Side Routing, although a little longer on the initial load, is much faster and creates a better user-experience generally for larger applications.
+
 - [ ] Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
+
+    -Create = .post() / Read = .get() / Update = .put() / Delete = .delete()
+
 - [ ] Mention three tools we can use to make AJAX requests.
+
+    -fetch, axios, and ???  These are the only one we talked about.  Perhaps Hooks.  There is another AJAX API like axios called Superagent, or maybe you are looking for XMLHttpRequest, which was replaced by fetch.  Unsure what the question means by "tools".
+
 
 
 ## Project Set Up
